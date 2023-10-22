@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8700
+ADD target/jwt-auth-service-1.0.0.jar jwt-auth-service.jar
+ENTRYPOINT ["java","-jar","jwt-auth-service.jar"]
