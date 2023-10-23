@@ -1,4 +1,4 @@
-version: '24.0.6'
+version: '24.0'
 
 services :
 #Eureka
@@ -12,7 +12,7 @@ services :
   usermicroservice : 
     build : ./userMicroservice
     ports : 
-      - "8700:8058"
+      - "8703:8058"
     image : "usermicroservice"
     depends_on : 
       - eurekaServer
