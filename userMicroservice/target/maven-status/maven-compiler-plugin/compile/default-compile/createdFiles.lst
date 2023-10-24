@@ -1,7 +1,0 @@
-com\bidbound\microservice\user\model\User.class
-com\bidbound\microservice\user\model\UserRole.class
-com\bidbound\microservice\user\service\UserRepository.class
-com\bidbound\microservice\user\UserMicroserviceApplication.class
-com\bidbound\microservice\user\controller\userController.class
-com\bidbound\microservice\user\service\IuserService.class
-com\bidbound\microservice\user\service\userServiceImpl.class
