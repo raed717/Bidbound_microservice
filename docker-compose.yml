@@ -1,4 +1,4 @@
-version: '24.0.6'
+version: '24.0'
 
 services :
 #Eureka
@@ -8,12 +8,12 @@ services :
       - "8761:8761"
     image : "eureka"
 
-#User-Microservice
-  usermicroservice : 
-    build : ./userMicroservice
+#product-Microservice
+  productmicroservice : 
+    build : ./ProductMicroservice/Product
     ports : 
-      - "8700:8058"
-    image : "usermicroservice"
+      - "8701:3308"
+    image : "productmicroservice"
     depends_on : 
       - eurekaServer
     environment :
@@ -30,11 +30,11 @@ services :
       - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
 
 #product-Microservice
-  productmicroservice : 
-    build : ./ProductMicroservice/Product
+  msuser : 
+    build : ./MsUser
     ports : 
-      - "8701:3308"
-    image : "productmicroservice"
+      - "8799:3309"
+    image : "msuser"
     depends_on : 
       - eurekaServer
     environment :
