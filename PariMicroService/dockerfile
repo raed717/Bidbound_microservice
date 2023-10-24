@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8766
+ADD target/PariMicroService-0.0.1-SNAPSHOT.jar Pari.jar
+ENTRYPOINT ["java","-jar","Pari.jar"]

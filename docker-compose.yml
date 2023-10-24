@@ -1,0 +1,41 @@
+version: '24.0'
+
+services :
+#Eureka
+  eurekaServer : 
+    build : ./EurekaServer/Eureka
+    ports : 
+      - "8761:8761"
+    image : "eureka"
+
+#product-Microservice
+  productmicroservice : 
+    build : ./ProductMicroservice/Product
+    ports : 
+      - "8701:3308"
+    image : "productmicroservice"
+    depends_on : 
+      - eurekaServer
+    environment :
+      - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+#Pari-Microservice
+  parimicroservice :
+    build : ./PariMicroService
+    ports :
+      - "8766:8086"
+    image : "parimicroservice"
+    depends_on :
+      - eurekaServer
+    environment :
+      - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+
+#product-Microservice
+  msuser : 
+    build : ./MsUser
+    ports : 
+      - "8799:3309"
+    image : "msuser"
+    depends_on : 
+      - eurekaServer
+    environment :
+      - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
