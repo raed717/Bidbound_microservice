@@ -22,7 +22,7 @@ services :
   parimicroservice :
     build : ./PariMicroService
     ports :
-      - "8700:8056"
+      - "8766:8086"
     image : "parimicroservice"
     depends_on :
       - eurekaServer
