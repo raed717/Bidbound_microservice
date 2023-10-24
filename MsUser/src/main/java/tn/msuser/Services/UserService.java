@@ -34,4 +34,16 @@ public class UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
+    public Boolean login(String email, String pwd) {
+        User user = userRepository.findByEmail(email).orElse(null);
+        if (user == null) {
+            return false;
+        }
+        if (user.getEmail().equals(email) && user.getPassword().equals(pwd)) {
+            return true;
+        }
+        return false;
+    }
+
 }
