@@ -13,7 +13,10 @@ RUN npm install
 
  
 COPY . .
-
 EXPOSE 8702
+
+
+# Command to run your application
+CMD ["node", "app.js"]
 
 
