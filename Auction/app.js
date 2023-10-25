@@ -9,7 +9,6 @@ const errorHandler = require('./helpers/error-handler');
 const api = process.env.API_URL;
 
 const eureka = require('eureka-js-client').Eureka;
-
 const eurekaClient = new eureka({
   instance: {
     app: 'AuctionMicroservice',  
@@ -43,8 +42,7 @@ eurekaClient.start((error) => {
     console.log('Registered with Eureka successfully');
   }
 });
-module.exports = eureka;
-
+ 
   
  
 app.use(cors({
