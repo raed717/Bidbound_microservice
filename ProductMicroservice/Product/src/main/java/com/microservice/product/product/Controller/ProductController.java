@@ -19,10 +19,8 @@ IProduct serv;
     @GetMapping("/list-product")
     public List<Product> getProduits() {
         List<Product> prd = serv.findAllProducts ();
-
         return prd;
     }
-
     @DeleteMapping("/delete-prd/{id}")
     public void delete (@PathVariable Integer id) {
         serv.deleteProduct (id);
@@ -32,5 +30,10 @@ IProduct serv;
         return serv.createProduct (product);
     }
 
-}
+
+    @GetMapping("/find-product/{id}")
+    public Product findProductById (@PathVariable Integer id) {
+        return serv.findProductById (id);
+    }
+ }
 
