@@ -49,6 +49,17 @@ services :
       - eurekaServer
     environment :
       - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+  #Enchere-Microservice
+  enchermicroservice :
+    build : ./AuctionMicroService
+    ports :
+      - "8801:8087"
+    image : "encheremicroservice"
+    depends_on :
+      - eurekaServer
+    environment :
+      - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+
 #Gateway-Microservice
   gateway : 
     build : ./API_Gateway_Server
