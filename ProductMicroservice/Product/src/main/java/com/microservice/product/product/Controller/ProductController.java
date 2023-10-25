@@ -21,6 +21,10 @@ IProduct serv;
         List<Product> prd = serv.findAllProducts ();
         return prd;
     }
+
+
+
+
     @DeleteMapping("/delete-prd/{id}")
     public void delete (@PathVariable Integer id) {
         serv.deleteProduct (id);
