@@ -14,7 +14,7 @@ const eurekaClient = new eureka({
   instance: {
     app: 'AuctionMicroservice',  
     hostName: 'localhost',
-    ipAddr: '127.0.0.1',
+    ipAddr: '127.0.0.0',
     port: {
       '$': 3000,  
       '@enabled': true,
@@ -47,7 +47,9 @@ module.exports = eureka;
 
   
  
-app.use(cors()); 
+app.use(cors({
+  origin: 'localhost:8761',
+}));
 app.options('*',cors ());
 app.use(express.json()); 
 app.use(morgan('tiny'));

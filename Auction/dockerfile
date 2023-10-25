@@ -1,22 +1,20 @@
-
 # Use an official Node.js runtime as a parent image
 FROM node:14
 
 # Create app directory
 WORKDIR /usr/src/app
 
-
 # Install app dependencies
- COPY package*.json app.js ./
+COPY package*.json app.js ./
 
-RUN npm install
+RUN npm cache clean -f
+RUN npm install --legacy-peer-deps
 
- 
+# Copy the rest of your application files
 COPY . .
-EXPOSE 8702
 
+# Expose the port your application will run on
+EXPOSE 8702
 
 # Command to run your application
 CMD ["node", "app.js"]
-
-
