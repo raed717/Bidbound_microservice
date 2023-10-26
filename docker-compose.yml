@@ -41,7 +41,7 @@ services :
       - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/   
 #Auction-Microservice
   auctionmicroservice :
-    build : ./AuctionMicroService
+    build : ./Auction
     ports :
       - "8702:3000"
     image : "auctionmicroservice"
@@ -49,16 +49,28 @@ services :
       - eurekaServer
     environment :
       - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
-  #Enchere-Microservice
-  enchermicroservice :
-    build : ./AuctionMicroService
-    ports :
-      - "8801:8087"
-    image : "encheremicroservice"
+
+#commande-Microservice
+  commandemicroservice : 
+    build : ./produit
+    ports : 
+      - "8708:3315"
+    image : "commandemicroservice"
     depends_on :
       - eurekaServer
     environment :
       - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
+      
+  #Enchere-Microservice
+  #enchermicroservice :
+    #build : ./Enchere
+    #ports :
+    #  - "8801:8087"
+    #image : "encheremicroservice"
+    #depends_on :
+    #  - eurekaServer
+    #environment :
+    #  - eureka.client.serviceUrl.defaultZone=http://eurekaServer:8761/eureka/
 
 #Gateway-Microservice
   gateway : 
