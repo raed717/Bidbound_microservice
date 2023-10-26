@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import jakarta.ws.rs.DefaultValue;
 import lombok.*;
 import java.io.Serializable;
-
+import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -12,6 +12,8 @@ import java.io.Serializable;
 @Builder
 @Entity
 public class Enchere implements Serializable {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 private String product;
 private String seller;
