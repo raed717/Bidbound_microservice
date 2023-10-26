@@ -37,7 +37,7 @@ The project is structured as follows:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   https://github.com/your-username/your-project.git](https://github.com/raed717/Bidbound_microservice.git
 
 To run separated MS expl: 
 docker run -p 8761:8761 eureka
