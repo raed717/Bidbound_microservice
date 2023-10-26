@@ -12,9 +12,9 @@ import java.io.Serializable;
 @Builder
 @Entity
 public class Enchere implements Serializable {
-private int id;
-private Product product;
-private User seller;
+private Long id;
+private String product;
+private String seller;
 private Date startDate;
 private Date endDate;
 
